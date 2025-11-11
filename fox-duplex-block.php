@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       Fox Duplex Block
- * Description:       A Gutenberg block with photo & text columns. tool.
+ * Description:       A Gutenberg block with image & text columns. tool.
  * Version:           0.1.0
  * Requires at least: 6.7
  * Requires PHP:      7.4

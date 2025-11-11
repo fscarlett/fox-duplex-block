@@ -9,7 +9,7 @@ return array(
 		'title' => 'Fox Duplex Block',
 		'category' => 'widgets',
 		'icon' => 'smiley',
-		'description' => 'A Gutenberg block with photo & text columns.',
+		'description' => 'A Gutenberg block with image & text columns.',
 		'example' => array(
 			
 		),

@@ -11,5 +11,5 @@
  */
 ?>
 <p <?php echo get_block_wrapper_attributes(); ?>>
-	<?php esc_html_e( 'Fox Duplex Block – hello from a dynamic block!', 'fox-duplex-block' ); ?>
+	<?php esc_html_e( 'Fox Duplex Block – hello from your auntie!', 'fox-duplex-block' ); ?>
 </p>

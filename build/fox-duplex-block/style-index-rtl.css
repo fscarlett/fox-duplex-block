@@ -8,7 +8,75 @@
  * Replace them with your own styles or remove the file completely.
  */
 .wp-block-create-block-fox-duplex-block {
-  background-color: #21759b;
-  color: #fff;
-  padding: 2px;
+  background-color: #e1e5ef;
+  color: #222;
+  padding: 0;
+}
+* {
+  box-sizing: border-box;
+}
+.fox-edit-controls-image-wrapper {
+  padding: 10px 0;
+}
+.fox-img-picker-button {
+  background-color: #a1d4f4;
+  border-radius: 3px;
+  border-width: 1px;
+  font-size: 15px;
+  padding: 6px 10px 8px;
+}
+hr.components-divider {
+  border-bottom: 1px solid #bbb;
+}
+.fox-duplex-block-content-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  padding: 1rem 0;
+}
+.fox-duplex-block-img-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fox-duplex-block-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.fox-duplex-block-content-wrapper {
+  flex: 1;
+  padding: 1rem 2rem;
+  border: 1px solid #ccc;
+}
+.fox-duplex-block-container {
+  padding: 0 10px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #bef;
+  min-height: 350px;
+  color: #777;
+}
+.fox-duplex-block-container-mob {
+  display: none;
+  padding: 0 10px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #3d88e9;
+  min-height: 600px;
+  color: #777;
+}
+.fox-duplex-block-content-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.fox-duplex-block-content-wrapper {
+  max-width: 690px;
+  padding-top: 60px;
+  padding-bottom: 100px;
+  color: #777;
 }
