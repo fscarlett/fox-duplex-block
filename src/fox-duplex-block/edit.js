@@ -55,14 +55,15 @@ export default function Edit(props) {
 			const imgData = select("core").getEntityRecord(
 				"postType",
 				"attachment",
-				props.attributes.heroImgId,
+				props.attributes.imageId,
 			);
 			return imgData;
 		},
-		[props.attributes.heroImgId],
+		[props.attributes.imageId],
 	);
 
-	const mainHeroImage = image1 ? image1?.source_url : "";
+	const mainImage = image1 ? image1?.source_url : "";
+	console.log("mainImage:", mainImage);
 
 	const image2 = useSelect(
 		(select) => {
@@ -91,14 +92,16 @@ export default function Edit(props) {
 						<div className="fox-duplex-block-img-wrapper">
 							<img
 								className="fox-duplex-block-img"
-								src={mainHeroImage}
+								src={mainImage}
 								alt="The Image"
 							/>
 						</div>
 						<div className="fox-duplex-block-content-wrapper">
+							<h2 className="fox-duplex-block-title">
+								{props.attributes.duplexHeading}
+							</h2>
 							<p className="fox-duplex-block-paragraph">
-								{props.attributes.heroParagraph}
-								hello from the duplex paragraph
+								{props.attributes.duplexParagraph}
 							</p>
 						</div>
 					</div>
@@ -120,10 +123,10 @@ export default function Edit(props) {
 			</section>
 
 			<InspectorControls>
-				<PanelBody title="Hero Section Settings" opened="true">
+				<PanelBody title="Duplex Section Settings" opened="true">
 					<Divider />
 
-					<p>HERO IMAGE</p>
+					<p>IMAGE</p>
 
 					<MediaUploadCheck>
 						<MediaUpload
@@ -131,25 +134,25 @@ export default function Edit(props) {
 							render={({ open }) => {
 								return (
 									<button onClick={open} className="fox-img-picker-button">
-										Select Hero Image
+										Select Image
 									</button>
 								);
 							}}
-							value={props.attributes.heroImgId}
+							value={props.attributes.imageId}
 							onSelect={(item) => {
 								console.log({ item });
 								props.setAttributes({
-									heroImgId: item.id,
+									imageId: item.id,
 								});
 								props.setAttributes({
-									pickedHeroImgUrl: item.url,
+									pickedImageUrl: item.url,
 								});
-								console.log({ pickedHeroImgUrl });
+								console.log({ pickedImageUrl });
 							}}
 						></MediaUpload>
 					</MediaUploadCheck>
 					<div className="fox-edit-controls-image-wrapper">
-						{!!props.attributes.heroImgId && !!image1?.source_url && (
+						{!!props.attributes.imageId && !!image1?.source_url && (
 							<img
 								src={image1 ? image1?.source_url : ""}
 								height={250}
@@ -171,7 +174,7 @@ export default function Edit(props) {
 
 					<p>MOBILE IMAGE</p>
 
-					<MediaUploadCheck label="Pick Mobile Background Image">
+					<MediaUploadCheck label="Pick Mobile Image">
 						<MediaUpload
 							allowedTypes={["image"]}
 							render={({ open }) => {
@@ -207,18 +210,18 @@ export default function Edit(props) {
 					<Divider />
 
 					<TextControl
-						label="Hero Title"
-						value={props.attributes.heroTitle}
+						label="Duplex Secion Heading"
+						value={props.attributes.duplexHeading}
 						onChange={(newValue) => {
-							props.setAttributes({ heroTitle: newValue });
+							props.setAttributes({ duplexHeading: newValue });
 						}}
 					/>
 
 					<TextareaControl
-						label="Hero Paragraph"
-						value={props.attributes.heroParagraph}
+						label="Duplex Section Paragraph"
+						value={props.attributes.duplexParagraph}
 						onChange={(newValue) => {
-							props.setAttributes({ heroParagraph: newValue });
+							props.setAttributes({ duplexParagraph: newValue });
 						}}
 					/>
 

@@ -16,6 +16,44 @@ return array(
 		'supports' => array(
 			'html' => false
 		),
+		'attributes' => array(
+			'imageId' => array(
+				'type' => 'number',
+				'default' => '0'
+			),
+			'pickedImageUrl' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'mobImgId' => array(
+				'type' => 'number',
+				'default' => '0'
+			),
+			'pickedMobImgUrl' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'duplexImageSourceUrl' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'duplexImageMobSourceUrl' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'imgVertPosition' => array(
+				'type' => 'string',
+				'default' => '0'
+			),
+			'duplexHeading' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'duplexParagraph' => array(
+				'type' => 'string',
+				'default' => ''
+			)
+		),
 		'textdomain' => 'fox-duplex-block',
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',

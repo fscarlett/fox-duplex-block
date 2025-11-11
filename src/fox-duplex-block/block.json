@@ -11,6 +11,44 @@
 	"supports": {
 		"html": false
 	},
+	"attributes": {
+		"imageId": {
+			"type": "number",
+			"default": "0"
+		},
+		"pickedImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"mobImgId": {
+			"type": "number",
+			"default": "0"
+		},
+		"pickedMobImgUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"duplexImageSourceUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"duplexImageMobSourceUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"imgVertPosition": {
+			"type": "string",
+			"default": "0"
+		},
+		"duplexHeading": {
+			"type": "string",
+			"default": ""
+		},
+		"duplexParagraph": {
+			"type": "string",
+			"default": ""
+		}
+	},
 	"textdomain": "fox-duplex-block",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",

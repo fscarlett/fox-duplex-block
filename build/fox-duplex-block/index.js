@@ -8,7 +8,7 @@
   \*****************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/fox-duplex-block","version":"0.1.0","title":"Fox Duplex Block","category":"widgets","icon":"smiley","description":"A Gutenberg block with image & text columns.","example":{},"supports":{"html":false},"textdomain":"fox-duplex-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/fox-duplex-block","version":"0.1.0","title":"Fox Duplex Block","category":"widgets","icon":"smiley","description":"A Gutenberg block with image & text columns.","example":{},"supports":{"html":false},"attributes":{"imageId":{"type":"number","default":"0"},"pickedImageUrl":{"type":"string","default":""},"mobImgId":{"type":"number","default":"0"},"pickedMobImgUrl":{"type":"string","default":""},"duplexImageSourceUrl":{"type":"string","default":""},"duplexImageMobSourceUrl":{"type":"string","default":""},"imgVertPosition":{"type":"string","default":"0"},"duplexHeading":{"type":"string","default":""},"duplexParagraph":{"type":"string","default":""}},"textdomain":"fox-duplex-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ }),
 
@@ -76,10 +76,11 @@ function Edit(props) {
     ...blockProps
   } = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)();
   const image1 = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => {
-    const imgData = select("core").getEntityRecord("postType", "attachment", props.attributes.heroImgId);
+    const imgData = select("core").getEntityRecord("postType", "attachment", props.attributes.imageId);
     return imgData;
-  }, [props.attributes.heroImgId]);
-  const mainHeroImage = image1 ? image1?.source_url : "";
+  }, [props.attributes.imageId]);
+  const mainImage = image1 ? image1?.source_url : "";
+  console.log("mainImage:", mainImage);
   const image2 = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => {
     const imgData = select("core").getEntityRecord("postType", "attachment", props.attributes.mobImgId);
     return imgData;
@@ -101,15 +102,18 @@ function Edit(props) {
             className: "fox-duplex-block-img-wrapper",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
               className: "fox-duplex-block-img",
-              src: mainHeroImage,
+              src: mainImage,
               alt: "The Image"
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "fox-duplex-block-content-wrapper",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("p", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h2", {
+              className: "fox-duplex-block-title",
+              children: props.attributes.duplexHeading
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
               className: "fox-duplex-block-paragraph",
-              children: [props.attributes.heroParagraph, "hello from the duplex paragraph"]
-            })
+              children: props.attributes.duplexParagraph
+            })]
           })]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
@@ -130,10 +134,10 @@ function Edit(props) {
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
-        title: "Hero Section Settings",
+        title: "Duplex Section Settings",
         opened: "true",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalDivider, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
-          children: "HERO IMAGE"
+          children: "IMAGE"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUploadCheck, {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUpload, {
             allowedTypes: ["image"],
@@ -143,28 +147,28 @@ function Edit(props) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
                 onClick: open,
                 className: "fox-img-picker-button",
-                children: "Select Hero Image"
+                children: "Select Image"
               });
             },
-            value: props.attributes.heroImgId,
+            value: props.attributes.imageId,
             onSelect: item => {
               console.log({
                 item
               });
               props.setAttributes({
-                heroImgId: item.id
+                imageId: item.id
               });
               props.setAttributes({
-                pickedHeroImgUrl: item.url
+                pickedImageUrl: item.url
               });
               console.log({
-                pickedHeroImgUrl
+                pickedImageUrl
               });
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           className: "fox-edit-controls-image-wrapper",
-          children: !!props.attributes.heroImgId && !!image1?.source_url && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+          children: !!props.attributes.imageId && !!image1?.source_url && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
             src: image1 ? image1?.source_url : "",
             height: 250,
             width: 250
@@ -181,7 +185,7 @@ function Edit(props) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalDivider, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
           children: "MOBILE IMAGE"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUploadCheck, {
-          label: "Pick Mobile Background Image",
+          label: "Pick Mobile Image",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUpload, {
             allowedTypes: ["image"],
             render: ({
@@ -217,19 +221,19 @@ function Edit(props) {
             width: 170
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalDivider, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
-          label: "Hero Title",
-          value: props.attributes.heroTitle,
+          label: "Duplex Secion Heading",
+          value: props.attributes.duplexHeading,
           onChange: newValue => {
             props.setAttributes({
-              heroTitle: newValue
+              duplexHeading: newValue
             });
           }
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextareaControl, {
-          label: "Hero Paragraph",
-          value: props.attributes.heroParagraph,
+          label: "Duplex Section Paragraph",
+          value: props.attributes.duplexParagraph,
           onChange: newValue => {
             props.setAttributes({
-              heroParagraph: newValue
+              duplexParagraph: newValue
             });
           }
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalDivider, {})]
