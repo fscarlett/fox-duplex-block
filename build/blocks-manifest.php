@@ -52,6 +52,18 @@ return array(
 			'duplexParagraph' => array(
 				'type' => 'string',
 				'default' => ''
+			),
+			'hasCTA' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'ctaLinkText' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'ctaLinkUrl' => array(
+				'type' => 'string',
+				'default' => ''
 			)
 		),
 		'textdomain' => 'fox-duplex-block',

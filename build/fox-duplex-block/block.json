@@ -47,6 +47,18 @@
     "duplexParagraph": {
       "type": "string",
       "default": ""
+    },
+    "hasCTA": {
+      "type": "boolean",
+      "default": false
+    },
+    "ctaLinkText": {
+      "type": "string",
+      "default": ""
+    },
+    "ctaLinkUrl": {
+      "type": "string",
+      "default": ""
     }
   },
   "textdomain": "fox-duplex-block",

@@ -8,7 +8,7 @@
   \*****************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/fox-duplex-block","version":"0.1.0","title":"Fox Duplex Block","category":"widgets","icon":"columns","description":"A Gutenberg block with image & text columns.","example":{},"supports":{"html":false},"attributes":{"imageId":{"type":"number","default":"0"},"pickedImageUrl":{"type":"string","default":""},"mobImgId":{"type":"number","default":"0"},"pickedMobImgUrl":{"type":"string","default":""},"duplexImageSourceUrl":{"type":"string","default":""},"duplexImageMobSourceUrl":{"type":"string","default":""},"imgVertPosition":{"type":"string","default":"0"},"duplexHeading":{"type":"string","default":""},"duplexParagraph":{"type":"string","default":""}},"textdomain":"fox-duplex-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/fox-duplex-block","version":"0.1.0","title":"Fox Duplex Block","category":"widgets","icon":"columns","description":"A Gutenberg block with image & text columns.","example":{},"supports":{"html":false},"attributes":{"imageId":{"type":"number","default":"0"},"pickedImageUrl":{"type":"string","default":""},"mobImgId":{"type":"number","default":"0"},"pickedMobImgUrl":{"type":"string","default":""},"duplexImageSourceUrl":{"type":"string","default":""},"duplexImageMobSourceUrl":{"type":"string","default":""},"imgVertPosition":{"type":"string","default":"0"},"duplexHeading":{"type":"string","default":""},"duplexParagraph":{"type":"string","default":""},"hasCTA":{"type":"boolean","default":false},"ctaLinkText":{"type":"string","default":""},"ctaLinkUrl":{"type":"string","default":""}},"textdomain":"fox-duplex-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ }),
 
@@ -80,11 +80,13 @@ function Edit(props) {
     return imgData;
   }, [props.attributes.imageId]);
   const mainImage = image1 ? image1?.source_url : "";
-  console.log("mainImage:", mainImage);
+  // console.log("mainImage:", mainImage);
+
   const image2 = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => {
     const imgData = select("core").getEntityRecord("postType", "attachment", props.attributes.mobImgId);
     return imgData;
   }, [props.attributes.mobImgId]);
+  const mobileImage = image2 ? image2?.source_url : "";
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("section", {
       className: `${className}`,
@@ -113,6 +115,10 @@ function Edit(props) {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
               className: "fox-duplex-block-paragraph",
               children: props.attributes.duplexParagraph
+            }), !!props.attributes.hasCTA && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
+              href: props.attributes.ctaLinkUrl,
+              className: "fox-duplex-block-cta-link",
+              children: props.attributes.ctaLinkText
             })]
           })]
         })
@@ -128,7 +134,7 @@ function Edit(props) {
             className: "fox-duplex-block-img-wrapper",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
               className: "fox-duplex-block-img",
-              src: mainImage,
+              src: mobileImage,
               alt: "The Image"
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
@@ -185,7 +191,7 @@ function Edit(props) {
             width: 250
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
-          label: "Hero Image Vertical Position",
+          label: "Image Vertical Position",
           help: "Enter a number between 0 and 100. This is the percent up or down to align the image as desired.",
           value: props.attributes.imgVertPosition,
           onChange: newValue => {
@@ -231,8 +237,10 @@ function Edit(props) {
             height: 170,
             width: 170
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalDivider, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
-          label: "Duplex Secion Heading",
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalDivider, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+          children: "TEXT CONTENT"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+          label: "Duplex Section Heading",
           value: props.attributes.duplexHeading,
           onChange: newValue => {
             props.setAttributes({
@@ -245,6 +253,30 @@ function Edit(props) {
           onChange: newValue => {
             props.setAttributes({
               duplexParagraph: newValue
+            });
+          }
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
+          label: "Has CTA",
+          checked: props.attributes.hasCTA,
+          onChange: newValue => {
+            props.setAttributes({
+              hasCTA: newValue
+            });
+          }
+        }), !!props.attributes.hasCTA && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+          label: "CTA Link Text",
+          value: props.attributes.ctaLinkText,
+          onChange: newValue => {
+            props.setAttributes({
+              ctaLinkText: newValue
+            });
+          }
+        }), !!props.attributes.hasCTA && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+          label: "CTA Link Url",
+          value: props.attributes.ctaLinkUrl,
+          onChange: newValue => {
+            props.setAttributes({
+              ctaLinkUrl: newValue
             });
           }
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalDivider, {})]

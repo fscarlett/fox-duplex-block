@@ -63,7 +63,7 @@ export default function Edit(props) {
 	);
 
 	const mainImage = image1 ? image1?.source_url : "";
-	console.log("mainImage:", mainImage);
+	// console.log("mainImage:", mainImage);
 
 	const image2 = useSelect(
 		(select) => {
@@ -76,6 +76,7 @@ export default function Edit(props) {
 		},
 		[props.attributes.mobImgId],
 	);
+	const mobileImage = image2 ? image2?.source_url : "";
 
 	return (
 		<>
@@ -105,6 +106,14 @@ export default function Edit(props) {
 							<p className="fox-duplex-block-paragraph">
 								{props.attributes.duplexParagraph}
 							</p>
+							{!!props.attributes.hasCTA && (
+								<a
+									href={props.attributes.ctaLinkUrl}
+									className="fox-duplex-block-cta-link"
+								>
+									{props.attributes.ctaLinkText}
+								</a>
+							)}
 						</div>
 					</div>
 				</div>
@@ -123,7 +132,7 @@ export default function Edit(props) {
 						<div className="fox-duplex-block-img-wrapper">
 							<img
 								className="fox-duplex-block-img"
-								src={mainImage}
+								src={mobileImage}
 								alt="The Image"
 							/>
 						</div>
@@ -179,7 +188,7 @@ export default function Edit(props) {
 					</div>
 
 					<TextControl
-						label="Hero Image Vertical Position"
+						label="Image Vertical Position"
 						help="Enter a number between 0 and 100. This is the percent up or down to align the image as desired."
 						value={props.attributes.imgVertPosition}
 						onChange={(newValue) => {
@@ -226,8 +235,10 @@ export default function Edit(props) {
 
 					<Divider />
 
+					<p>TEXT CONTENT</p>
+
 					<TextControl
-						label="Duplex Secion Heading"
+						label="Duplex Section Heading"
 						value={props.attributes.duplexHeading}
 						onChange={(newValue) => {
 							props.setAttributes({ duplexHeading: newValue });
@@ -242,6 +253,34 @@ export default function Edit(props) {
 						}}
 					/>
 
+					<ToggleControl
+						label="Has CTA"
+						checked={props.attributes.hasCTA}
+						onChange={(newValue) => {
+							props.setAttributes({
+								hasCTA: newValue,
+							});
+						}}
+					/>
+					{!!props.attributes.hasCTA && (
+						<TextControl
+							label="CTA Link Text"
+							value={props.attributes.ctaLinkText}
+							onChange={(newValue) => {
+								props.setAttributes({ ctaLinkText: newValue });
+							}}
+						/>
+					)}
+
+					{!!props.attributes.hasCTA && (
+						<TextControl
+							label="CTA Link Url"
+							value={props.attributes.ctaLinkUrl}
+							onChange={(newValue) => {
+								props.setAttributes({ ctaLinkUrl: newValue });
+							}}
+						/>
+					)}
 					<Divider />
 				</PanelBody>
 			</InspectorControls>
