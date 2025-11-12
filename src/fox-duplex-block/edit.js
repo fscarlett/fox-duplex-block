@@ -82,11 +82,13 @@ export default function Edit(props) {
 			<section className={`${className}`} {...blockProps}>
 				<div
 					className="fox-duplex-block-container gb-container alignfull"
-					style={{
-						// backgroundImage: `url(${props.attributes.heroImgSourceUrl})`,
-						backgroundImage: `url(${props.attributes.duplexImgSourceUrl})`,
-						backgroundPosition: `center ${props.attributes.imgVertPosition}%`,
-					}}
+					style={
+						{
+							// backgroundImage: `url(${props.attributes.heroImgSourceUrl})`,
+							// backgroundImage: `url(${props.attributes.duplexImgSourceUrl})`,
+							// backgroundPosition: `center ${props.attributes.imgVertPosition}%`,
+						}
+					}
 				>
 					<div className="gb-container fox-duplex-block-content-container">
 						<div className="fox-duplex-block-img-wrapper">
@@ -107,16 +109,31 @@ export default function Edit(props) {
 					</div>
 				</div>
 
+				{/* mobile */}
 				<div
 					className="fox-duplex-block-container-mob gb-container alignfull"
-					style={{
-						backgroundImage: `url(${props.attributes.heroImgMobSourceUrl})`,
-						backgroundPosition: `center ${props.attributes.imgVertPosition}%`,
-					}}
+					style={
+						{
+							// backgroundImage: `url(${props.attributes.heroImgMobSourceUrl})`,
+							// backgroundPosition: `center ${props.attributes.imgVertPosition}%`,
+						}
+					}
 				>
 					<div className="gb-container fox-duplex-block-content-container">
+						<div className="fox-duplex-block-img-wrapper">
+							<img
+								className="fox-duplex-block-img"
+								src={mainImage}
+								alt="The Image"
+							/>
+						</div>
 						<div className="fox-duplex-block-content-wrapper">
-							<p>{props.attributes.heroParagraph} </p>
+							<h2 className="fox-duplex-block-title">
+								{props.attributes.duplexHeading}
+							</h2>
+							<p className="fox-duplex-block-paragraph">
+								{props.attributes.duplexParagraph}
+							</p>
 						</div>
 					</div>
 				</div>

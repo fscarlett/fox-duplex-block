@@ -8,7 +8,7 @@ return array(
 		'version' => '0.1.0',
 		'title' => 'Fox Duplex Block',
 		'category' => 'widgets',
-		'icon' => 'smiley',
+		'icon' => 'columns',
 		'description' => 'A Gutenberg block with image & text columns.',
 		'example' => array(
 			

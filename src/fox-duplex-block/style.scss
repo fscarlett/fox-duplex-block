@@ -49,12 +49,12 @@ hr.components-divider {
 .fox-duplex-block-img {
 	max-width: 100%;
 	height: auto;
-	border-radius: 8px;
+	// border-radius: 8px;
 }
 .fox-duplex-block-content-wrapper {
 	flex: 1;
 	padding: 1rem 2rem;
-	border: 1px solid #ccc;
+	// border: 1px solid #ccc;
 }
 
 .fox-duplex-block-container {
@@ -71,7 +71,7 @@ hr.components-divider {
 	padding: 0 10px;
 	background-repeat: no-repeat;
 	background-size: cover;
-	background-color: #3d88e9;
+	background-color: #bef;
 	min-height: 600px;
 	color: #777;
 }
@@ -90,4 +90,48 @@ hr.components-divider {
 	color: #777;
 	// display: flex;
 	// flex-direction: column;
+}
+
+.fox-duplex-block-container-mob {
+	.fox-duplex-block-content-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 0;
+		padding: 1rem 0;
+	}
+	.fox-duplex-block-content-wrapper {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+		padding-top: 80px;
+		padding-bottom: 120px;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.fox-duplex-block-container-mob {
+		display: block;
+	}
+
+	.fox-duplex-block-container {
+		display: none;
+	}
+}
+
+// @media screen and (max-width: 1024px) {
+// 	.fox-duplex-block-container h1,
+// 	.fox-duplex-block-container-mob h1 {
+// 		font-size: 56px;
+// 	}
+// }
+
+@media screen and (max-width: 782px) {
+	.fox-duplex-block-container h2,
+	.fox-duplex-block-container-mob h2 {
+		font-size: 28px;
+	}
 }
