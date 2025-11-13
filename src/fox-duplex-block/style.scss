@@ -51,18 +51,17 @@ hr.components-divider {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 30px 30px;
+	padding: 50px 40px;
 }
 .fox-duplex-block-img {
 	max-width: 100%;
 	height: auto;
-	// border-radius: 8px;
 }
 
 .fox-duplex-block-img-padded {
 	max-width: 100%;
 	height: auto;
-	border-radius: 16px;
+	border-radius: 20px;
 }
 .fox-duplex-block-content-wrapper {
 	flex: 1;
@@ -155,5 +154,23 @@ hr.components-divider {
 	.fox-duplex-block-container h2,
 	.fox-duplex-block-container-mob h2 {
 		font-size: 28px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.fox-duplex-block-content-container {
+		flex-direction: column;
+	}
+	.fox-duplex-block-img-wrapper,
+	.fox-duplex-block-img-wrapper-padded,
+	.fox-duplex-block-content-wrapper {
+		flex: none;
+		width: 100%;
+	}
+	.fox-duplex-block-content-wrapper {
+		padding: 1rem;
+	}
+	.fox-duplex-block-img-wrapper-padded {
+		padding: 25px 15px;
 	}
 }

@@ -18,6 +18,7 @@
 					
 				>
 					<div class="gb-container fox-duplex-block-content-container">
+						<?php if ( ! $attributes['hasImgPadding'] ) : ?>
 						<div class="fox-duplex-block-img-wrapper">
 							<img
 								class="fox-duplex-block-img"
@@ -25,6 +26,15 @@
 								alt="The Image"
 							/>
 						</div>
+						<?php else : ?>
+							<div class="fox-duplex-block-img-wrapper-padded">
+							<img
+								class="fox-duplex-block-img-padded"
+								src=<?php echo esc_url( $attributes['pickedImageUrl'] ); ?>
+								alt="The Image"
+							/>
+						</div>
+						<?php endif; ?>
 						<div class="fox-duplex-block-content-wrapper">
 							<h2 class="fox-duplex-block-title">
 								<?php echo esc_html( $attributes['duplexHeading'] ); ?>
@@ -50,6 +60,7 @@
 					
 				>
 					<div class="gb-container fox-duplex-block-content-container">
+						<?php if ( ! $attributes['hasImgPadding'] ) : ?>
 						<div class="fox-duplex-block-img-wrapper">
 							<img
 								class="fox-duplex-block-img"
@@ -57,6 +68,16 @@
 								alt="The Image"
 							/>
 						</div>
+						<?php else : ?>
+							<div class="fox-duplex-block-img-wrapper-padded">
+							<img
+								class="fox-duplex-block-img-padded"
+								src=<?php echo esc_url( $attributes['pickedMobImgUrl'] ); ?>
+								alt="The Image"
+							/>
+						</div>
+						<?php endif; ?>
+						
 						<div class="fox-duplex-block-content-wrapper">
 							<h2 class="fox-duplex-block-title">
 								<?php echo esc_html( $attributes['duplexHeading'] ); ?>
