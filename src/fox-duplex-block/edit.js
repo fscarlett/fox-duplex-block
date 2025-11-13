@@ -92,13 +92,24 @@ export default function Edit(props) {
 					}
 				>
 					<div className="gb-container fox-duplex-block-content-container">
-						<div className="fox-duplex-block-img-wrapper">
-							<img
-								className="fox-duplex-block-img"
-								src={mainImage}
-								alt="The Image"
-							/>
-						</div>
+						{!props.attributes.hasImgPadding && (
+							<div className="fox-duplex-block-img-wrapper">
+								<img
+									className="fox-duplex-block-img"
+									src={mainImage}
+									alt="The Image"
+								/>
+							</div>
+						)}
+						{props.attributes.hasImgPadding && (
+							<div className="fox-duplex-block-img-wrapper-padded">
+								<img
+									className="fox-duplex-block-img-padded"
+									src={mainImage}
+									alt="The Padded Image"
+								/>
+							</div>
+						)}
 						<div className="fox-duplex-block-content-wrapper">
 							<h2 className="fox-duplex-block-title">
 								{props.attributes.duplexHeading}
@@ -129,13 +140,25 @@ export default function Edit(props) {
 					}
 				>
 					<div className="gb-container fox-duplex-block-content-container">
-						<div className="fox-duplex-block-img-wrapper">
-							<img
-								className="fox-duplex-block-img"
-								src={mobileImage}
-								alt="The Image"
-							/>
-						</div>
+						{!props.attributes.hasImgPadding && (
+							<div className="fox-duplex-block-img-wrapper">
+								<img
+									className="fox-duplex-block-img"
+									src={mobileImage}
+									alt="The Image"
+								/>
+							</div>
+						)}
+						{props.attributes.hasImgPadding && (
+							<div className="fox-duplex-block-img-wrapper-padded">
+								<img
+									className="fox-duplex-block-img-padded"
+									src={mobileImage}
+									alt="The Padded Image"
+								/>
+							</div>
+						)}
+
 						<div className="fox-duplex-block-content-wrapper">
 							<h2 className="fox-duplex-block-title">
 								{props.attributes.duplexHeading}
@@ -194,6 +217,16 @@ export default function Edit(props) {
 							/>
 						)}
 					</div>
+
+					<ToggleControl
+						label="Turn On Image Padding"
+						checked={props.attributes.hasImgPadding}
+						onChange={(newValue) => {
+							props.setAttributes({
+								hasImgPadding: newValue,
+							});
+						}}
+					/>
 
 					<TextControl
 						label="Image Vertical Position"

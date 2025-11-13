@@ -46,10 +46,23 @@ hr.components-divider {
 	justify-content: center;
 	align-items: center;
 }
+.fox-duplex-block-img-wrapper-padded {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 30px 30px;
+}
 .fox-duplex-block-img {
 	max-width: 100%;
 	height: auto;
 	// border-radius: 8px;
+}
+
+.fox-duplex-block-img-padded {
+	max-width: 100%;
+	height: auto;
+	border-radius: 16px;
 }
 .fox-duplex-block-content-wrapper {
 	flex: 1;

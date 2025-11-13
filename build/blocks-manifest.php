@@ -64,6 +64,10 @@ return array(
 			'ctaLinkUrl' => array(
 				'type' => 'string',
 				'default' => ''
+			),
+			'hasImgPadding' => array(
+				'type' => 'boolean',
+				'default' => false
 			)
 		),
 		'textdomain' => 'fox-duplex-block',

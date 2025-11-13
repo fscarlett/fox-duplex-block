@@ -8,7 +8,7 @@
   \*****************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/fox-duplex-block","version":"0.1.0","title":"Fox Duplex Block","category":"widgets","icon":"columns","description":"A Gutenberg block with image & text columns.","example":{},"supports":{"html":false},"attributes":{"imageId":{"type":"number","default":"0"},"pickedImageUrl":{"type":"string","default":""},"mobImgId":{"type":"number","default":"0"},"pickedMobImgUrl":{"type":"string","default":""},"duplexImageSourceUrl":{"type":"string","default":""},"duplexImageMobSourceUrl":{"type":"string","default":""},"imgVertPosition":{"type":"string","default":"0"},"duplexHeading":{"type":"string","default":""},"duplexParagraph":{"type":"string","default":""},"hasCTA":{"type":"boolean","default":false},"ctaLinkText":{"type":"string","default":""},"ctaLinkUrl":{"type":"string","default":""}},"textdomain":"fox-duplex-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/fox-duplex-block","version":"0.1.0","title":"Fox Duplex Block","category":"widgets","icon":"columns","description":"A Gutenberg block with image & text columns.","example":{},"supports":{"html":false},"attributes":{"imageId":{"type":"number","default":"0"},"pickedImageUrl":{"type":"string","default":""},"mobImgId":{"type":"number","default":"0"},"pickedMobImgUrl":{"type":"string","default":""},"duplexImageSourceUrl":{"type":"string","default":""},"duplexImageMobSourceUrl":{"type":"string","default":""},"imgVertPosition":{"type":"string","default":"0"},"duplexHeading":{"type":"string","default":""},"duplexParagraph":{"type":"string","default":""},"hasCTA":{"type":"boolean","default":false},"ctaLinkText":{"type":"string","default":""},"ctaLinkUrl":{"type":"string","default":""},"hasImgPadding":{"type":"boolean","default":false}},"textdomain":"fox-duplex-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ }),
 
@@ -100,12 +100,19 @@ function Edit(props) {
         },
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "gb-container fox-duplex-block-content-container",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          children: [!props.attributes.hasImgPadding && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             className: "fox-duplex-block-img-wrapper",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
               className: "fox-duplex-block-img",
               src: mainImage,
               alt: "The Image"
+            })
+          }), props.attributes.hasImgPadding && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            className: "fox-duplex-block-img-wrapper-padded",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+              className: "fox-duplex-block-img-padded",
+              src: mainImage,
+              alt: "The Padded Image"
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "fox-duplex-block-content-wrapper",
@@ -130,12 +137,19 @@ function Edit(props) {
         },
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "gb-container fox-duplex-block-content-container",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          children: [!props.attributes.hasImgPadding && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             className: "fox-duplex-block-img-wrapper",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
               className: "fox-duplex-block-img",
               src: mobileImage,
               alt: "The Image"
+            })
+          }), props.attributes.hasImgPadding && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            className: "fox-duplex-block-img-wrapper-padded",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+              className: "fox-duplex-block-img-padded",
+              src: mobileImage,
+              alt: "The Padded Image"
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "fox-duplex-block-content-wrapper",
@@ -194,6 +208,14 @@ function Edit(props) {
             height: 250,
             width: 250
           })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
+          label: "Turn On Image Padding",
+          checked: props.attributes.hasImgPadding,
+          onChange: newValue => {
+            props.setAttributes({
+              hasImgPadding: newValue
+            });
+          }
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
           label: "Image Vertical Position",
           help: "Enter a number between 0 and 100. This is the percent up or down to align the image as desired.",

@@ -59,6 +59,10 @@
     "ctaLinkUrl": {
       "type": "string",
       "default": ""
+    },
+    "hasImgPadding": {
+      "type": "boolean",
+      "default": false
     }
   },
   "textdomain": "fox-duplex-block",
