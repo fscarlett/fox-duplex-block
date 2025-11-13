@@ -143,6 +143,14 @@ export default function Edit(props) {
 							<p className="fox-duplex-block-paragraph">
 								{props.attributes.duplexParagraph}
 							</p>
+							{!!props.attributes.hasCTA && (
+								<a
+									href={props.attributes.ctaLinkUrl}
+									className="fox-duplex-block-cta-link"
+								>
+									{props.attributes.ctaLinkText}
+								</a>
+							)}
 						</div>
 					</div>
 				</div>

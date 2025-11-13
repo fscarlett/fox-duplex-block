@@ -145,6 +145,10 @@ function Edit(props) {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
               className: "fox-duplex-block-paragraph",
               children: props.attributes.duplexParagraph
+            }), !!props.attributes.hasCTA && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
+              href: props.attributes.ctaLinkUrl,
+              className: "fox-duplex-block-cta-link",
+              children: props.attributes.ctaLinkText
             })]
           })]
         })

@@ -25,7 +25,7 @@
  */
 
 /* eslint-disable no-console */
-console.log('Hello World! (from create-block-fox-duplex-block block)');
+// console.log( 'Hello World! (from create-block-fox-duplex-block block)' );
 /* eslint-enable no-console */
 /******/ })()
 ;

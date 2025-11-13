@@ -10,6 +10,69 @@
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
 ?>
-<p <?php echo get_block_wrapper_attributes(); ?>>
-	<?php esc_html_e( 'Fox Duplex Block – hello from your auntie!', 'fox-duplex-block' ); ?>
-</p>
+ <?php // echo get_block_wrapper_attributes(); ?>
+	
+ <section>
+				<div
+					class="fox-duplex-block-container gb-container alignfull"
+					
+				>
+					<div class="gb-container fox-duplex-block-content-container">
+						<div class="fox-duplex-block-img-wrapper">
+							<img
+								class="fox-duplex-block-img"
+								src=<?php echo esc_url( $attributes['pickedImageUrl'] ); ?>
+								alt="The Image"
+							/>
+						</div>
+						<div class="fox-duplex-block-content-wrapper">
+							<h2 class="fox-duplex-block-title">
+								<?php echo esc_html( $attributes['duplexHeading'] ); ?>
+							</h2>
+							<p class="fox-duplex-block-paragraph">
+								<?php echo esc_html( $attributes['duplexParagraph'] ); ?>
+							</p>
+							<?php if ( $attributes['hasCTA'] ) : ?>
+								<a
+									href=<?php echo esc_url( $attributes['ctaLinkUrl'] ); ?>
+									class="fox-duplex-block-cta-link"
+								>
+									<?php echo esc_html( $attributes['ctaLinkText'] ); ?>
+								</a>
+							<?php endif; ?>
+						</div>
+					</div>
+				</div>
+
+				<!-- mobile -->
+				<div
+					class="fox-duplex-block-container-mob gb-container alignfull"
+					
+				>
+					<div class="gb-container fox-duplex-block-content-container">
+						<div class="fox-duplex-block-img-wrapper">
+							<img
+								class="fox-duplex-block-img"
+								src=<?php echo esc_url( $attributes['pickedMobImgUrl'] ); ?>
+								alt="The Image"
+							/>
+						</div>
+						<div class="fox-duplex-block-content-wrapper">
+							<h2 class="fox-duplex-block-title">
+								<?php echo esc_html( $attributes['duplexHeading'] ); ?>
+							</h2>
+							<p class="fox-duplex-block-paragraph">
+								<?php echo esc_html( $attributes['duplexParagraph'] ); ?>
+							</p>
+							<?php if ( $attributes['hasCTA'] ) : ?>
+								<a
+									href=<?php echo esc_url( $attributes['ctaLinkUrl'] ); ?>
+									class="fox-duplex-block-cta-link"
+								>
+									<?php echo esc_html( $attributes['ctaLinkText'] ); ?>
+								</a>
+							<?php endif; ?>
+						</div>
+					</div>
+				</div>
+			</section>
