@@ -35,6 +35,9 @@ hr.components-divider {
   align-items: center;
   gap: 0;
   padding: 0;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .fox-duplex-block-img-wrapper {
   flex: 1;
@@ -62,6 +65,19 @@ hr.components-divider {
   flex: 1;
   padding: 1rem 2rem;
 }
+.fox-duplex-block-content-wrapper h2 {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: #222;
+}
+.fox-duplex-block-content-wrapper p {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #222;
+}
 .fox-duplex-block-cta-link {
   display: inline-block;
   margin-top: 1rem;
@@ -86,11 +102,6 @@ hr.components-divider {
   background-color: #bef;
   color: #777;
 }
-.fox-duplex-block-content-container {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-}
 .fox-duplex-block-content-wrapper {
   max-width: 690px;
   padding-top: 60px;
@@ -110,8 +121,8 @@ hr.components-divider {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  padding-top: 80px;
-  padding-bottom: 120px;
+  padding-top: 30px;
+  padding-bottom: 60px;
 }
 @media screen and (max-width: 900px) {
   .fox-duplex-block-container-mob {
@@ -124,7 +135,7 @@ hr.components-divider {
 @media screen and (max-width: 782px) {
   .fox-duplex-block-container h2,
   .fox-duplex-block-container-mob h2 {
-    font-size: 28px;
+    font-size: 3rem;
   }
 }
 @media screen and (max-width: 600px) {

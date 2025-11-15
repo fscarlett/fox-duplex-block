@@ -6,7 +6,6 @@
  */
 
 .wp-block-create-block-fox-duplex-block {
-	// background-color: #e1e5ef;
 	color: #222;
 	padding: 0;
 	margin: 0;
@@ -39,6 +38,9 @@ hr.components-divider {
 	align-items: center;
 	gap: 0;
 	padding: 0;
+	max-width: 1200px;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 .fox-duplex-block-img-wrapper {
@@ -67,7 +69,19 @@ hr.components-divider {
 .fox-duplex-block-content-wrapper {
 	flex: 1;
 	padding: 1rem 2rem;
-	// border: 1px solid #ccc;
+	h2 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1.2;
+		margin-bottom: 1rem;
+		color: #222;
+	}
+	p {
+		font-size: 1.4rem;
+		line-height: 1.6;
+		margin-bottom: 1rem;
+		color: #222;
+	}
 }
 
 .fox-duplex-block-cta-link {
@@ -76,6 +90,7 @@ hr.components-divider {
 	padding: 0.5rem 1rem;
 	background-color: #0073aa;
 	color: #fff;
+	// font-weight: 700;
 	text-decoration: none;
 	border-radius: 4px;
 }
@@ -98,20 +113,11 @@ hr.components-divider {
 	color: #777;
 }
 
-.fox-duplex-block-content-container {
-	max-width: 1200px;
-	// padding-top: 20px;
-	margin-right: auto;
-	margin-left: auto;
-}
-
 .fox-duplex-block-content-wrapper {
 	max-width: 690px;
 	padding-top: 60px;
 	padding-bottom: 100px;
 	color: #777;
-	// display: flex;
-	// flex-direction: column;
 }
 
 .fox-duplex-block-container-mob {
@@ -121,7 +127,6 @@ hr.components-divider {
 		justify-content: center;
 		align-items: center;
 		gap: 0;
-		// padding: 1rem 0;
 	}
 	.fox-duplex-block-content-wrapper {
 		width: 100%;
@@ -129,8 +134,8 @@ hr.components-divider {
 		flex-direction: column;
 		justify-content: flex-start;
 		align-items: flex-start;
-		padding-top: 80px;
-		padding-bottom: 120px;
+		padding-top: 30px;
+		padding-bottom: 60px;
 	}
 }
 
@@ -144,17 +149,10 @@ hr.components-divider {
 	}
 }
 
-// @media screen and (max-width: 1024px) {
-// 	.fox-duplex-block-container h1,
-// 	.fox-duplex-block-container-mob h1 {
-// 		font-size: 56px;
-// 	}
-// }
-
 @media screen and (max-width: 782px) {
 	.fox-duplex-block-container h2,
 	.fox-duplex-block-container-mob h2 {
-		font-size: 28px;
+		font-size: 3rem;
 	}
 }
 
