@@ -56,6 +56,10 @@
 			"type": "string",
 			"default": ""
 		},
+		"removeBackgroundColor": {
+			"type": "boolean",
+			"default": false
+		},
 		"hasImgPadding": {
 			"type": "boolean",
 			"default": false

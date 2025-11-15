@@ -61,6 +61,10 @@ return array(
 				'type' => 'string',
 				'default' => ''
 			),
+			'removeBackgroundColor' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
 			'hasImgPadding' => array(
 				'type' => 'boolean',
 				'default' => false

@@ -81,7 +81,15 @@ export default function Edit(props) {
 	return (
 		<>
 			<section className={`${className}`} {...blockProps}>
-				<div className="fox-duplex-block-container gb-container alignfull">
+				<div
+					className="fox-duplex-block-container gb-container alignfull"
+					style={{
+						backgroundColor: props.attributes.removeBackgroundColor
+							? "transparent"
+							: "#bef",
+					}}
+				>
+					{/* desktop */}
 					<div className="gb-container fox-duplex-block-content-container">
 						{!props.attributes.hasImgPadding && (
 							<div className="fox-duplex-block-img-wrapper">
@@ -121,7 +129,14 @@ export default function Edit(props) {
 				</div>
 
 				{/* mobile */}
-				<div className="fox-duplex-block-container-mob gb-container alignfull">
+				<div
+					className="fox-duplex-block-container-mob gb-container alignfull"
+					style={{
+						backgroundColor: props.attributes.removeBackgroundColor
+							? "transparent"
+							: "#bef",
+					}}
+				>
 					<div className="gb-container fox-duplex-block-content-container">
 						{!props.attributes.hasImgPadding && (
 							<div className="fox-duplex-block-img-wrapper">
@@ -207,6 +222,16 @@ export default function Edit(props) {
 						onChange={(newValue) => {
 							props.setAttributes({
 								hasImgPadding: newValue,
+							});
+						}}
+					/>
+
+					<ToggleControl
+						label="Remove Background Color"
+						checked={props.attributes.removeBackgroundColor}
+						onChange={(newValue) => {
+							props.setAttributes({
+								removeBackgroundColor: newValue,
 							});
 						}}
 					/>
