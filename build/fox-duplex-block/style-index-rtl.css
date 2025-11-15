@@ -63,7 +63,10 @@ hr.components-divider {
 }
 .fox-duplex-block-content-wrapper {
   flex: 1;
-  padding: 1rem 2rem;
+  max-width: 690px;
+  padding-top: 60px;
+  padding-bottom: 100px;
+  color: #777;
 }
 .fox-duplex-block-content-wrapper h2 {
   font-size: 4rem;
@@ -100,12 +103,6 @@ hr.components-divider {
 .fox-duplex-block-container-mob {
   display: none;
   background-color: #bef;
-  color: #777;
-}
-.fox-duplex-block-content-wrapper {
-  max-width: 690px;
-  padding-top: 60px;
-  padding-bottom: 100px;
   color: #777;
 }
 .fox-duplex-block-container-mob .fox-duplex-block-content-container {
@@ -147,8 +144,6 @@ hr.components-divider {
   .fox-duplex-block-content-wrapper {
     flex: none;
     width: 100%;
-  }
-  .fox-duplex-block-content-wrapper {
     padding: 1rem;
   }
   .fox-duplex-block-img-wrapper-padded {
