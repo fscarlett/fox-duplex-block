@@ -81,16 +81,7 @@ export default function Edit(props) {
 	return (
 		<>
 			<section className={`${className}`} {...blockProps}>
-				<div
-					className="fox-duplex-block-container gb-container alignfull"
-					style={
-						{
-							// backgroundImage: `url(${props.attributes.heroImgSourceUrl})`,
-							// backgroundImage: `url(${props.attributes.duplexImgSourceUrl})`,
-							// backgroundPosition: `center ${props.attributes.imgVertPosition}%`,
-						}
-					}
-				>
+				<div className="fox-duplex-block-container gb-container alignfull">
 					<div className="gb-container fox-duplex-block-content-container">
 						{!props.attributes.hasImgPadding && (
 							<div className="fox-duplex-block-img-wrapper">
@@ -130,15 +121,7 @@ export default function Edit(props) {
 				</div>
 
 				{/* mobile */}
-				<div
-					className="fox-duplex-block-container-mob gb-container alignfull"
-					style={
-						{
-							// backgroundImage: `url(${props.attributes.heroImgMobSourceUrl})`,
-							// backgroundPosition: `center ${props.attributes.imgVertPosition}%`,
-						}
-					}
-				>
+				<div className="fox-duplex-block-container-mob gb-container alignfull">
 					<div className="gb-container fox-duplex-block-content-container">
 						{!props.attributes.hasImgPadding && (
 							<div className="fox-duplex-block-img-wrapper">
@@ -225,15 +208,6 @@ export default function Edit(props) {
 							props.setAttributes({
 								hasImgPadding: newValue,
 							});
-						}}
-					/>
-
-					<TextControl
-						label="Image Vertical Position"
-						help="Enter a number between 0 and 100. This is the percent up or down to align the image as desired."
-						value={props.attributes.imgVertPosition}
-						onChange={(newValue) => {
-							props.setAttributes({ imgVertPosition: newValue });
 						}}
 					/>
 

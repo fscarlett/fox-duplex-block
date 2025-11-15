@@ -41,10 +41,6 @@ return array(
 				'type' => 'string',
 				'default' => ''
 			),
-			'imgVertPosition' => array(
-				'type' => 'string',
-				'default' => '0'
-			),
 			'duplexHeading' => array(
 				'type' => 'string',
 				'default' => ''

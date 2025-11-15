@@ -36,10 +36,6 @@
 			"type": "string",
 			"default": ""
 		},
-		"imgVertPosition": {
-			"type": "string",
-			"default": "0"
-		},
 		"duplexHeading": {
 			"type": "string",
 			"default": ""
