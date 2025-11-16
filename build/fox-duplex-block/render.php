@@ -43,8 +43,9 @@
 							</p>
 							<?php if ( $attributes['hasCTA'] ) : ?>
 								<a
-									href=<?php echo esc_url( $attributes['ctaLinkUrl'] ); ?>
+									href="<?php echo esc_url( $attributes['ctaLinkUrl'] ); ?>"
 									class="fox-duplex-block-cta-link"
+									style="background-color: <?php echo $attributes['ctaBackgroundColor']; ?>"
 								>
 									<?php echo esc_html( $attributes['ctaLinkText'] ); ?>
 								</a>
@@ -86,8 +87,9 @@
 							</p>
 							<?php if ( $attributes['hasCTA'] ) : ?>
 								<a
-									href=<?php echo esc_url( $attributes['ctaLinkUrl'] ); ?>
+									href="<?php echo esc_url( $attributes['ctaLinkUrl'] ); ?>"
 									class="fox-duplex-block-cta-link"
+									style="background-color: <?php echo $attributes['ctaBackgroundColor']; ?>"
 								>
 									<?php echo esc_html( $attributes['ctaLinkText'] ); ?>
 								</a>
