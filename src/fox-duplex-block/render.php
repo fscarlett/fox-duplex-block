@@ -15,7 +15,7 @@
  <section>
 				<div
 					class="fox-duplex-block-container gb-container alignfull"
-					style="background-color: <?php echo $attributes['removeBackgroundColor'] ? 'transparent' : '#bef'; ?>; ">
+					style="background-color: <?php echo $attributes['removeBackgroundColor'] ? 'transparent' : $attributes['backgroundColor']; ?>; ">
 					<div class="gb-container fox-duplex-block-content-container">
 						<?php if ( ! $attributes['hasImgPadding'] ) : ?>
 						<div class="fox-duplex-block-img-wrapper">
@@ -56,7 +56,7 @@
 				<!-- mobile -->
 				<div
 					class="fox-duplex-block-container-mob gb-container alignfull"
-					style="background-color: <?php echo $attributes['removeBackgroundColor'] ? 'transparent' : '#bef'; ?>; "
+					style="background-color: <?php echo $attributes['removeBackgroundColor'] ? 'transparent' : $attributes['backgroundColor']; ?>; "
 				>
 					<div class="gb-container fox-duplex-block-content-container">
 						<?php if ( ! $attributes['hasImgPadding'] ) : ?>

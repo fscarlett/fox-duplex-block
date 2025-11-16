@@ -8,7 +8,7 @@
   \*****************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/fox-duplex-block","version":"0.1.0","title":"Fox Duplex Block","category":"widgets","icon":"columns","description":"A Gutenberg block with image & text columns.","example":{},"supports":{"html":false},"attributes":{"imageId":{"type":"number","default":"0"},"pickedImageUrl":{"type":"string","default":""},"mobImgId":{"type":"number","default":"0"},"pickedMobImgUrl":{"type":"string","default":""},"duplexImageSourceUrl":{"type":"string","default":""},"duplexImageMobSourceUrl":{"type":"string","default":""},"duplexHeading":{"type":"string","default":""},"duplexParagraph":{"type":"string","default":""},"hasCTA":{"type":"boolean","default":false},"ctaLinkText":{"type":"string","default":""},"ctaLinkUrl":{"type":"string","default":""},"removeBackgroundColor":{"type":"boolean","default":false},"hasImgPadding":{"type":"boolean","default":false}},"textdomain":"fox-duplex-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/fox-duplex-block","version":"0.1.0","title":"Fox Duplex Block","category":"widgets","icon":"columns","description":"A Gutenberg block with image & text columns.","example":{},"supports":{"html":false},"attributes":{"imageId":{"type":"number","default":"0"},"pickedImageUrl":{"type":"string","default":""},"mobImgId":{"type":"number","default":"0"},"pickedMobImgUrl":{"type":"string","default":""},"duplexImageSourceUrl":{"type":"string","default":""},"duplexImageMobSourceUrl":{"type":"string","default":""},"duplexHeading":{"type":"string","default":""},"duplexParagraph":{"type":"string","default":""},"hasCTA":{"type":"boolean","default":false},"ctaLinkText":{"type":"string","default":""},"ctaLinkUrl":{"type":"string","default":""},"backgroundColor":{"type":"string","default":"#ffffff"},"removeBackgroundColor":{"type":"boolean","default":false},"ctaBackgroundColor":{"type":"string","default":""},"hasImgPadding":{"type":"boolean","default":false}},"textdomain":"fox-duplex-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ }),
 
@@ -68,9 +68,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 function Edit(props) {
-  console.log({
-    props
-  });
+  // console.log({ props });
   const {
     className,
     ...blockProps
@@ -94,7 +92,7 @@ function Edit(props) {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "fox-duplex-block-container gb-container alignfull",
         style: {
-          backgroundColor: props.attributes.removeBackgroundColor ? "transparent" : "#bef"
+          backgroundColor: props.attributes.removeBackgroundColor ? "transparent" : props.attributes.backgroundColor
         },
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "gb-container fox-duplex-block-content-container",
@@ -123,6 +121,9 @@ function Edit(props) {
             }), !!props.attributes.hasCTA && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
               href: props.attributes.ctaLinkUrl,
               className: "fox-duplex-block-cta-link",
+              style: {
+                backgroundColor: props.attributes.ctaBackgroundColor
+              },
               children: props.attributes.ctaLinkText
             })]
           })]
@@ -130,7 +131,7 @@ function Edit(props) {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "fox-duplex-block-container-mob gb-container alignfull",
         style: {
-          backgroundColor: props.attributes.removeBackgroundColor ? "transparent" : "#bef"
+          backgroundColor: props.attributes.removeBackgroundColor ? "transparent" : props.attributes.backgroundColor
         },
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "gb-container fox-duplex-block-content-container",
@@ -159,6 +160,9 @@ function Edit(props) {
             }), !!props.attributes.hasCTA && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
               href: props.attributes.ctaLinkUrl,
               className: "fox-duplex-block-cta-link",
+              style: {
+                backgroundColor: props.attributes.ctaBackgroundColor
+              },
               children: props.attributes.ctaLinkText
             })]
           })]
@@ -184,18 +188,14 @@ function Edit(props) {
             },
             value: props.attributes.imageId,
             onSelect: item => {
-              console.log({
-                item
-              });
+              // console.log({ item });
               props.setAttributes({
                 imageId: item.id
               });
               props.setAttributes({
                 pickedImageUrl: item.url
               });
-              console.log({
-                pickedImageUrl
-              });
+              // console.log({ pickedImageUrl });
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
@@ -213,6 +213,16 @@ function Edit(props) {
               hasImgPadding: newValue
             });
           }
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ColorPicker, {
+          label: "Background Color",
+          color: props.attributes.backgroundColor,
+          onChange: newValue => {
+            props.setAttributes({
+              backgroundColor: newValue
+            });
+          },
+          enableAlpha: true,
+          defaultValue: "#ffffff"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
           label: "Remove Background Color",
           checked: props.attributes.removeBackgroundColor,
@@ -238,18 +248,14 @@ function Edit(props) {
             },
             value: props.attributes.mobImgId,
             onSelect: item => {
-              console.log({
-                item
-              });
+              // console.log({ item });
               props.setAttributes({
                 mobImgId: item.id
               });
               props.setAttributes({
                 pickedMobImgUrl: item.url
               });
-              console.log({
-                pickedMobImgUrl
-              });
+              // console.log({ pickedMobImgUrl });
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
@@ -301,6 +307,16 @@ function Edit(props) {
               ctaLinkUrl: newValue
             });
           }
+        }), !!props.attributes.hasCTA && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ColorPicker, {
+          label: "CTA Background Color",
+          color: props.attributes.ctaBackgroundColor,
+          onChange: newValue => {
+            props.setAttributes({
+              ctaBackgroundColor: newValue
+            });
+          },
+          enableAlpha: true,
+          defaultValue: ""
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalDivider, {})]
       })
     })]

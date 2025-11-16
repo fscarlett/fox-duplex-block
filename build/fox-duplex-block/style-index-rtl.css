@@ -89,11 +89,12 @@ hr.components-divider {
   color: #fff;
   text-decoration: none;
   border-radius: 4px;
+  border: 1px solid currentColor;
 }
 .fox-duplex-block-cta-link:hover {
   background-color: #ddf;
   color: #0073aa;
-  border: 1px solid #0073aa;
+  border: 1px solid currentColor;
 }
 .fox-duplex-block-container {
   background-color: #bef;

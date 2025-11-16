@@ -18,6 +18,7 @@ import {
 	MediaUploadCheck,
 } from "@wordpress/block-editor";
 import {
+	ColorPicker,
 	PanelBody,
 	SelectControl,
 	ToggleControl,
@@ -47,7 +48,7 @@ import "./editor.scss";
  * @return {Element} Element to render.
  */
 export default function Edit(props) {
-	console.log({ props });
+	// console.log({ props });
 	const { className, ...blockProps } = useBlockProps();
 
 	const image1 = useSelect(
@@ -86,7 +87,7 @@ export default function Edit(props) {
 					style={{
 						backgroundColor: props.attributes.removeBackgroundColor
 							? "transparent"
-							: "#bef",
+							: props.attributes.backgroundColor,
 					}}
 				>
 					{/* desktop */}
@@ -120,6 +121,9 @@ export default function Edit(props) {
 								<a
 									href={props.attributes.ctaLinkUrl}
 									className="fox-duplex-block-cta-link"
+									style={{
+										backgroundColor: props.attributes.ctaBackgroundColor,
+									}}
 								>
 									{props.attributes.ctaLinkText}
 								</a>
@@ -134,7 +138,7 @@ export default function Edit(props) {
 					style={{
 						backgroundColor: props.attributes.removeBackgroundColor
 							? "transparent"
-							: "#bef",
+							: props.attributes.backgroundColor,
 					}}
 				>
 					<div className="gb-container fox-duplex-block-content-container">
@@ -168,6 +172,9 @@ export default function Edit(props) {
 								<a
 									href={props.attributes.ctaLinkUrl}
 									className="fox-duplex-block-cta-link"
+									style={{
+										backgroundColor: props.attributes.ctaBackgroundColor,
+									}}
 								>
 									{props.attributes.ctaLinkText}
 								</a>
@@ -195,14 +202,14 @@ export default function Edit(props) {
 							}}
 							value={props.attributes.imageId}
 							onSelect={(item) => {
-								console.log({ item });
+								// console.log({ item });
 								props.setAttributes({
 									imageId: item.id,
 								});
 								props.setAttributes({
 									pickedImageUrl: item.url,
 								});
-								console.log({ pickedImageUrl });
+								// console.log({ pickedImageUrl });
 							}}
 						></MediaUpload>
 					</MediaUploadCheck>
@@ -224,6 +231,18 @@ export default function Edit(props) {
 								hasImgPadding: newValue,
 							});
 						}}
+					/>
+
+					<ColorPicker
+						label="Background Color"
+						color={props.attributes.backgroundColor}
+						onChange={(newValue) => {
+							props.setAttributes({
+								backgroundColor: newValue,
+							});
+						}}
+						enableAlpha
+						defaultValue="#ffffff"
 					/>
 
 					<ToggleControl
@@ -252,14 +271,14 @@ export default function Edit(props) {
 							}}
 							value={props.attributes.mobImgId}
 							onSelect={(item) => {
-								console.log({ item });
+								// console.log({ item });
 								props.setAttributes({
 									mobImgId: item.id,
 								});
 								props.setAttributes({
 									pickedMobImgUrl: item.url,
 								});
-								console.log({ pickedMobImgUrl });
+								// console.log({ pickedMobImgUrl });
 							}}
 						></MediaUpload>
 					</MediaUploadCheck>
@@ -319,6 +338,20 @@ export default function Edit(props) {
 							onChange={(newValue) => {
 								props.setAttributes({ ctaLinkUrl: newValue });
 							}}
+						/>
+					)}
+
+					{!!props.attributes.hasCTA && (
+						<ColorPicker
+							label="CTA Background Color"
+							color={props.attributes.ctaBackgroundColor}
+							onChange={(newValue) => {
+								props.setAttributes({
+									ctaBackgroundColor: newValue,
+								});
+							}}
+							enableAlpha
+							defaultValue=""
 						/>
 					)}
 					<Divider />

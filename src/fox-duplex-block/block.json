@@ -56,9 +56,17 @@
 			"type": "string",
 			"default": ""
 		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
 		"removeBackgroundColor": {
 			"type": "boolean",
 			"default": false
+		},
+		"ctaBackgroundColor": {
+			"type": "string",
+			"default": ""
 		},
 		"hasImgPadding": {
 			"type": "boolean",

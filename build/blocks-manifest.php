@@ -61,9 +61,17 @@ return array(
 				'type' => 'string',
 				'default' => ''
 			),
+			'backgroundColor' => array(
+				'type' => 'string',
+				'default' => '#ffffff'
+			),
 			'removeBackgroundColor' => array(
 				'type' => 'boolean',
 				'default' => false
+			),
+			'ctaBackgroundColor' => array(
+				'type' => 'string',
+				'default' => ''
 			),
 			'hasImgPadding' => array(
 				'type' => 'boolean',
