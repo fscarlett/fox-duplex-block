@@ -16,7 +16,8 @@
 				<div
 					class="fox-duplex-block-container gb-container alignfull"
 					style="background-color: <?php echo $attributes['removeBackgroundColor'] ? 'transparent' : $attributes['backgroundColor']; ?>; ">
-					<div class="gb-container fox-duplex-block-content-container">
+					<div class="gb-container fox-duplex-block-content-container"
+						style="flex-direction: <?php echo $attributes['isFlipped'] ? 'row-reverse' : 'row'; ?>;">
 						<?php if ( ! $attributes['hasImgPadding'] ) : ?>
 						<div class="fox-duplex-block-img-wrapper">
 							<img

@@ -56,6 +56,10 @@
 			"type": "string",
 			"default": ""
 		},
+		"isFlipped": {
+			"type": "boolean",
+			"default": false
+		},
 		"backgroundColor": {
 			"type": "string",
 			"default": "#ffffff"

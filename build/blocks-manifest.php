@@ -61,6 +61,10 @@ return array(
 				'type' => 'string',
 				'default' => ''
 			),
+			'isFlipped' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
 			'backgroundColor' => array(
 				'type' => 'string',
 				'default' => '#ffffff'

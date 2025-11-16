@@ -91,7 +91,12 @@ export default function Edit(props) {
 					}}
 				>
 					{/* desktop */}
-					<div className="gb-container fox-duplex-block-content-container">
+					<div
+						className="gb-container fox-duplex-block-content-container"
+						style={{
+							flexDirection: props.attributes.isFlipped ? "row-reverse" : "row",
+						}}
+					>
 						{!props.attributes.hasImgPadding && (
 							<div className="fox-duplex-block-img-wrapper">
 								<img
@@ -229,6 +234,16 @@ export default function Edit(props) {
 						onChange={(newValue) => {
 							props.setAttributes({
 								hasImgPadding: newValue,
+							});
+						}}
+					/>
+
+					<ToggleControl
+						label="Flip Image and Text Order"
+						checked={props.attributes.isFlipped}
+						onChange={(newValue) => {
+							props.setAttributes({
+								isFlipped: newValue,
 							});
 						}}
 					/>
