@@ -12,7 +12,8 @@
 ?>
  <?php // echo get_block_wrapper_attributes(); ?>
 	
- <section>
+ <section 
+ style="color: <?php if ( isset( $attributes['isWhiteText'] ) && $attributes['isWhiteText'] ) { ?> #fff;<?php } else { ?> #111; <?php } ?>">
 				<div
 					class="fox-duplex-block-container gb-container alignfull"
 					style="background-color: <?php echo $attributes['removeBackgroundColor'] ? 'transparent' : $attributes['backgroundColor']; ?>; ">

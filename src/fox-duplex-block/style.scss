@@ -6,7 +6,6 @@
  */
 
 .wp-block-create-block-fox-duplex-block {
-	color: #222;
 	padding: 0;
 	margin: 0;
 }
@@ -82,13 +81,11 @@ hr.components-divider {
 		font-weight: 700;
 		line-height: 1.2;
 		margin-bottom: 1rem;
-		color: #222;
 	}
 	p {
 		font-size: 1.4rem;
 		line-height: 1.6;
 		margin-bottom: 1rem;
-		color: #222;
 	}
 }
 
@@ -96,27 +93,27 @@ hr.components-divider {
 	display: inline-block;
 	margin-top: 1rem;
 	padding: 0.5rem 1rem;
-	color: #fff;
+	// color: #fff;
 	text-decoration: none;
 	border-radius: 4px;
 	border: 1px solid currentColor;
 }
 .fox-duplex-block-cta-link:hover {
-	background-color: #fff;
-	color: #111;
+	// filter: invert(1);
+	// background-color: #fff;
+	// color: #111;
+	text-decoration: underline;
 	border: 1px solid currentColor;
 }
 
 .fox-duplex-block-container {
-	background-color: #bef;
+	// background-color: #bef;
 	min-height: 350px;
-	color: #777;
 }
 
 .fox-duplex-block-container-mob {
 	display: none;
-	background-color: #bef;
-	color: #777;
+	// background-color: #bef;
 }
 
 .fox-duplex-block-container-mob {
@@ -127,6 +124,7 @@ hr.components-divider {
 		align-items: center;
 		gap: 0;
 	}
+
 	.fox-duplex-block-content-wrapper {
 		width: 100%;
 		display: flex;

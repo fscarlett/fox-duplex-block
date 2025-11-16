@@ -65,6 +65,10 @@ return array(
 				'type' => 'boolean',
 				'default' => false
 			),
+			'isWhiteText' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
 			'backgroundColor' => array(
 				'type' => 'string',
 				'default' => '#ffffff'

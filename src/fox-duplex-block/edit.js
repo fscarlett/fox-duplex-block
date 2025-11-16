@@ -81,7 +81,14 @@ export default function Edit(props) {
 
 	return (
 		<>
-			<section className={`${className}`} {...blockProps}>
+			<section
+				className={`${className}`}
+				{...blockProps}
+				style={{
+					color: props.attributes.isWhiteText ? "#ffffff" : "#000000",
+				}}
+			>
+				{/* desktop */}
 				<div
 					className="fox-duplex-block-container gb-container alignfull"
 					style={{
@@ -90,7 +97,6 @@ export default function Edit(props) {
 							: props.attributes.backgroundColor,
 					}}
 				>
-					{/* desktop */}
 					<div
 						className="gb-container fox-duplex-block-content-container"
 						style={{
@@ -128,6 +134,7 @@ export default function Edit(props) {
 									className="fox-duplex-block-cta-link"
 									style={{
 										backgroundColor: props.attributes.ctaBackgroundColor,
+										color: props.attributes.isWhiteText ? "#ffffff" : "#000000",
 									}}
 								>
 									{props.attributes.ctaLinkText}
@@ -179,6 +186,7 @@ export default function Edit(props) {
 									className="fox-duplex-block-cta-link"
 									style={{
 										backgroundColor: props.attributes.ctaBackgroundColor,
+										color: props.attributes.isWhiteText ? "#ffffff" : "#000000",
 									}}
 								>
 									{props.attributes.ctaLinkText}
@@ -244,6 +252,16 @@ export default function Edit(props) {
 						onChange={(newValue) => {
 							props.setAttributes({
 								isFlipped: newValue,
+							});
+						}}
+					/>
+
+					<ToggleControl
+						label="Enable White Text"
+						checked={props.attributes.isWhiteText}
+						onChange={(newValue) => {
+							props.setAttributes({
+								isWhiteText: newValue,
 							});
 						}}
 					/>
