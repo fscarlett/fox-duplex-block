@@ -44,7 +44,6 @@ hr.components-divider {
 }
 
 .fox-duplex-block-img-wrapper {
-	// flex: 1;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -52,7 +51,6 @@ hr.components-divider {
 }
 
 .fox-duplex-block-img-wrapper-padded {
-	// flex: 1;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -79,7 +77,6 @@ hr.components-divider {
 	width: 50%;
 	max-width: 690px;
 	padding: 60px 10px 100px 40px;
-	color: #777;
 	h2 {
 		font-size: 4rem;
 		font-weight: 700;
@@ -99,16 +96,14 @@ hr.components-divider {
 	display: inline-block;
 	margin-top: 1rem;
 	padding: 0.5rem 1rem;
-	background-color: #0073aa;
 	color: #fff;
-	// font-weight: 700;
 	text-decoration: none;
 	border-radius: 4px;
 	border: 1px solid currentColor;
 }
 .fox-duplex-block-cta-link:hover {
-	background-color: #ddf;
-	color: #0073aa;
+	background-color: #fff;
+	color: #111;
 	border: 1px solid currentColor;
 }
 
@@ -121,7 +116,6 @@ hr.components-divider {
 .fox-duplex-block-container-mob {
 	display: none;
 	background-color: #bef;
-	// min-height: 600px;
 	color: #777;
 }
 
